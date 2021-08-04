@@ -20,11 +20,6 @@ if (!onGround) {
 	}
 }
 
-var planet = instance_nearest(x, y, objPlanet);
-if (planet != noone) {
-	
-}
-
 if (place_meeting(x + vx, y, objBlock)) {
   while(!place_meeting(x + sign(vx), y, objBlock)) x += sign(vx);
 } else x += vx;
