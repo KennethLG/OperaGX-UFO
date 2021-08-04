@@ -4,11 +4,15 @@
 vx = 0;
 vy = 0;
 
-vMax = 1.5;
+vMax = 1;
+vJump = 5;
+
+grvAcc = .5;
+grvMax = 5;
 
 acc = .2;
 fric = .3;
 
-imageSpeed = .2;
+faceDir = 0;
 
-planetGravity = noone;
+imageSpeed = .2;
