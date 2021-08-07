@@ -1,29 +1,32 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-kLeft = keyboard_check(vk_left);
-kRight = keyboard_check(vk_right);
-kJump = keyboard_check_pressed(vk_up);
+if (keyboard_check_pressed(ord("R"))) game_restart();
 
-onGround = place_meeting(x, y + 1, objBlock);
+var kLeft = keyboard_check(vk_left);
+var kright = keyboard_check(vk_right);
+var kjump = keyboard_check_pressed(vk_up);
 
-var move = kRight - kLeft;
+move = kright - kLeft;
 
-vx = move != 0 ? Approach(vx, vMax*move, acc) : Approach(vx, 0, fric);
+image_xscale = move == 0 ? image_xscale : move;
 
-if (!onGround) {
-	vy = Approach(vy, grvMax, grvAcc);
-} else {
-	vy = 0;
-	if (kJump) {
-		vy = -vJump;
-	}
+planet = instance_nearest(x, y, objPlanet);
+
+var dir = point_direction(x, y, planet.x, planet.y);
+
+var dirRun = dir + (50*move);
+
+var onGround = place_meeting(x + lengthdir_x(2, dir), y + lengthdir_y(2, dir), objPlanet);
+
+if (kjump && onGround) {
+	var dirToJump = point_direction(planet.x, planet.y, x, y);
+	physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
 }
 
-if (place_meeting(x + vx, y, objBlock)) {
-  while(!place_meeting(x + sign(vx), y, objBlock)) x += sign(vx);
-} else x += vx;
-  
-if (place_meeting(x, y + vy, objBlock)) {
-  while(!place_meeting(x, y + sign(vy), objBlock)) y += sign(vy);
-} else y += vy;
+physics_apply_force(
+	x,
+	y, 
+	lengthdir_x(gravityForce, dir) + (move == 0 ? 0 : lengthdir_x(vRun, dirRun)),
+	lengthdir_y(gravityForce, dir) + (move == 0 ? 0 : lengthdir_y(vRun, dirRun))
+);

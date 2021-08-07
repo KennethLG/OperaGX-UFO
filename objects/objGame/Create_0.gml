@@ -3,7 +3,3 @@
 
 // room config
 room_speed = 60;
-
-yCreate = 0;
-
-canCreate = 1;
