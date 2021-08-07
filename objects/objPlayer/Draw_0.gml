@@ -9,3 +9,6 @@ if (move == 0) {
 }
 
 draw_self();
+
+draw_text(0, 0, x);
+draw_text(0, 16, room_width);
