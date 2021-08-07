@@ -1,9 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-show_debug_message("xd");
-
 window_center();
+
+var screenSize = 8;
+
+if (canCreate) {
+	canCreate = 0;
+	
+	var yy = yCreate;
+	
+	for (var i = yy; i < (yy + screenSize); i++) {
+		instance_create_layer(0, room_height - 32 - (i*16), "Instances", objBlock);
+	}
+}
 
 //var screenWidth = display_get_width();
 //var screenHeight = display_get_height();

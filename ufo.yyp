@@ -5,6 +5,7 @@
     {"id":{"name":"objPlanet","path":"objects/objPlanet/objPlanet.yy",},"order":1,},
     {"id":{"name":"objBlock","path":"objects/objBlock/objBlock.yy",},"order":0,},
     {"id":{"name":"sprPlanet","path":"sprites/sprPlanet/sprPlanet.yy",},"order":0,},
+    {"id":{"name":"xd","path":"objects/xd/xd.yy",},"order":4,},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"order":2,},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},"order":0,},
     {"id":{"name":"sprAsteroid","path":"sprites/sprAsteroid/sprAsteroid.yy",},"order":2,},
