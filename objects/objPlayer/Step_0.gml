@@ -13,11 +13,8 @@ move = kright - kLeft;
 image_xscale = move == 0 ? image_xscale : move;
 
 planet = instance_nearest(x, y, objPlanet);
-
 var dir = point_direction(x, y, planet.x, planet.y);
-
-var dirRun = dir + (50*move);
-
+var dirRun = dir + (60*move);
 var onGround = place_meeting(x + lengthdir_x(2, dir), y + lengthdir_y(2, dir), objPlanet);
 
 if (onGround) {

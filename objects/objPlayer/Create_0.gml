@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-vRun = 8;
+vRun = 10;
 vJump = 5;
 vToLand = 5;
 gravityForce = 10;

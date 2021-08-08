@@ -9,6 +9,7 @@
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},"order":0,},
     {"id":{"name":"sprAsteroid","path":"sprites/sprAsteroid/sprAsteroid.yy",},"order":2,},
     {"id":{"name":"sprPlanet32","path":"sprites/sprPlanet32/sprPlanet32.yy",},"order":1,},
+    {"id":{"name":"camera","path":"scripts/camera/camera.yy",},"order":1,},
     {"id":{"name":"sprPlanet64","path":"sprites/sprPlanet64/sprPlanet64.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
