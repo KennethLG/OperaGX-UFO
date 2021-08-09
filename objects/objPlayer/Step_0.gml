@@ -34,11 +34,11 @@ if (onGround) {
 }
 
 physics_apply_force(
-	x,
-	y,
-	lengthdir_x(gravityForce, dir) + (move == 0 ? 0 : lengthdir_x(vRun, dirRun)),
-	lengthdir_y(gravityForce, dir) + (move == 0 ? 0 : lengthdir_y(vRun, dirRun))
-);
+		x,
+		y,
+		lengthdir_x(gravityForce, dir) + (move == 0 ? 0 : lengthdir_x(vRun, dirRun)),
+		lengthdir_y(gravityForce, dir) + (move == 0 ? 0 : lengthdir_y(vRun, dirRun))
+	);
 
 // outbound
 if (phy_position_x > room_width && phy_speed_x > 0) {
