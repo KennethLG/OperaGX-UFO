@@ -15,13 +15,13 @@
   "physicsDensity": 0.5,
   "physicsRestitution": 0.0,
   "physicsLinearDamping": 0.1,
-  "physicsAngularDamping": 10.0,
+  "physicsAngularDamping": 5.0,
   "physicsFriction": 0.2,
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [
-    {"x":13.0,"y":16.0,},
-    {"x":5.0,"y":16.0,},
+    {"x":13.0,"y":20.0,},
+    {"x":5.0,"y":20.0,},
   ],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlanet","path":"objects/objPlanet/objPlanet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},

@@ -9,10 +9,10 @@ while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 	var planet = instance_create_layer(xCreate, yCreate, "Instances", objPlanet);
 	planet.sprite_index = planetSprite;
 	
+	//create the player if does not exists
 	if (!instance_exists(objPlayer)) {
 		instance_create_layer(planet.x + (sprite_get_width(planet.sprite_index)/2), planet.y, "Instances", objPlayer);
 	}
-		
 	
 	// Configure the fixture
 	planet.fix = physics_fixture_create();

@@ -6,7 +6,9 @@ vJump = 5;
 vToLand = 5;
 gravityForce = 10;
 
-planet = -1;
+planet = noone;
 
 move = 0;
 canToLand = 1;
+
+onGround = 0;

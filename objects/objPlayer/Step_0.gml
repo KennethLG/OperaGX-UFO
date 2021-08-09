@@ -13,23 +13,27 @@ move = kright - kLeft;
 image_xscale = move == 0 ? image_xscale : move;
 
 planet = instance_nearest(x, y, objPlanet);
-var dir = point_direction(x, y, planet.x, planet.y);
-var dirRun = dir + (60*move);
-var onGround = place_meeting(x + lengthdir_x(2, dir), y + lengthdir_y(2, dir), objPlanet);
+if (planet != noone) {
+	var dir = point_direction(x, y, planet.x, planet.y);
+	var dirRun = dir + (60*move);
 
-if (onGround) {
-	if (!canToLand) {
-		canToLand = 1;
-	}
+	onGround = place_meeting(x + lengthdir_x(2, dir), y + lengthdir_y(2, dir), objPlanet);
+
+	if (onGround) {
+		if (!canToLand) {
+			canToLand = 1;
+		}
 	
-	if (kjump) {
-		var dirToJump = point_direction(planet.x, planet.y, x, y);
-		physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
-	}
-} else {
-	if (kdown && canToLand) {
-		canToLand = 0;
-		physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
+		if (kjump) {
+			var dirToJump = point_direction(planet.x, planet.y, x, y);
+			physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
+			audio_play_sound(sndJump, 1, 0);
+		}
+	} else {
+		if (kdown && canToLand) {
+			canToLand = 0;
+			physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
+		}	
 	}	
 }
 

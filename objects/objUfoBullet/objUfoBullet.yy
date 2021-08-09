@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprUfo",
-    "path": "sprites/sprUfo/sprUfo.yy",
+    "name": "sprUfoBullet",
+    "path": "sprites/sprUfoBullet/sprUfoBullet.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,9 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -32,7 +31,7 @@
     "path": "folders/Objects/ufo.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objUfo",
+  "name": "objUfoBullet",
   "tags": [],
   "resourceType": "GMObject",
 }
