@@ -20,3 +20,7 @@ maxScore = 0;
 gameScore = 0;
 
 timeShakeScreen = 0;
+
+death = 0;
+
+depth = -10;

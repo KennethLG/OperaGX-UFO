@@ -8,21 +8,25 @@ if (timeChangeX == 0) {
 	timeChangeX = Approach(timeChangeX, 0, 1);
 }
 
-if (timeShoot == 0) {
+if (instance_exists(objPlayer)) {
+	if (objPlayer.death == 0) {
+		if (timeShoot == 0) {
 
-	var bullet = instance_create_layer(x, y, "Instances", objUfoBullet);
-	bullet.spd = 2;
-	bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-20, 20);
+		var bullet = instance_create_layer(x, y, "Instances", objUfoBullet);
+		bullet.spd = 2;
+		bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-20, 20);
 
-	timeShoot = timeShootMax;
+		timeShoot = timeShootMax;
 	
-	audio_play_sound(sndShoot, 1, 0);
-	circleAlpha = 1;
-	circleRadius = 0;
+		audio_play_sound(sndShoot, 1, 0);
+		circleAlpha = 1;
+		circleRadius = 0;
 	
-	objGame.timeShakeScreen = objGame.rmSpeed*.3;
-} else {
-	timeShoot = Approach(timeShoot, 0, 1);
+		objGame.timeShakeScreen = objGame.rmSpeed*.3;
+	} else {
+		timeShoot = Approach(timeShoot, 0, 1);
+	}
+	}
 }
 
 if (circleAlpha == 0) {

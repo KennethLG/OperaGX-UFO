@@ -12,3 +12,8 @@ move = 0;
 canToLand = 1;
 
 onGround = 0;
+
+circleAlpha = 0;
+circleRadius = 0;
+
+death = 0;

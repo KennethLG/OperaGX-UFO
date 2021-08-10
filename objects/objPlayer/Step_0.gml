@@ -1,14 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (keyboard_check_pressed(ord("R"))) game_restart();
-
 var kLeft = keyboard_check(vk_left);
 var kright = keyboard_check(vk_right);
-var kjump = keyboard_check_pressed(vk_up);
-var kdown = keyboard_check_pressed(vk_down);
+var kjump = keyboard_check_pressed(vk_up) && !death;
+var kdown = keyboard_check_pressed(vk_down) && !death;
 
-move = kright - kLeft;
+move = death ? 0 : (kright - kLeft);
 
 image_xscale = move == 0 ? image_xscale : move;
 
@@ -66,4 +64,29 @@ var planetScore = instance_nearest(
 
 if ((y < planetScore.y) && (objGame.gameScore < planetScore.point)) {
 	objGame.gameScore++;
+}
+
+// death
+var bullet = instance_place(x, y, objUfoBullet);
+
+var deathByExplosion = (planet.death == 1) && (point_distance(x, y, planet.x, planet.y) < planet.sprite_width);
+
+if ((bullet != noone || deathByExplosion) && !death) {
+	circleAlpha = 1;
+	objGame.timeShakeScreen = objGame.rmSpeed*.5;
+	audio_play_sound(sndBang, 1, 0);
+	
+	var dirKill = deathByExplosion 
+		? point_direction(planet.x, planet.y, x, y) 
+		: bullet.dir;
+	physics_apply_impulse(x, y, lengthdir_x(15, dirKill), lengthdir_y(15, dirKill));
+	
+	death = 1;
+	killGame();
+	instance_destroy(bullet);
+}
+
+if ((bbox_top > (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]))) && !death) {
+	instance_destroy();
+	killGame();
 }

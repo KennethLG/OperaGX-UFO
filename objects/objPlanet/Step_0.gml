@@ -19,7 +19,6 @@ if (create) {
 	create = 0;
 	
 	var detailsNumber = irandom_range(3, 6);
-	details = [];
 	for (var i = 0; i < detailsNumber; i++) {
 		var detail = {
 			image: irandom_range(0, sprite_get_number(sprPlanetDetail)-1),
@@ -31,7 +30,6 @@ if (create) {
 		array_push(details, detail);
 	}
 
-	rings = [];
 	if (irandom_range(0, 100) > 60) {
 		ringsNumbers = irandom_range(0, 2);
 		for (var i = 0; i < ringsNumbers; i++) {

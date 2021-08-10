@@ -3,6 +3,8 @@
 
 window_center();
 
+if (keyboard_check_pressed(ord("R"))) game_restart();
+
 while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 	xCreate = irandom_range(0, room_width);
 	
@@ -12,7 +14,7 @@ while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 	planet.point = maxScore;
 	
 	//create the player if does not exists
-	if (!instance_exists(objPlayer)) {
+	if (!instance_exists(objPlayer) && death == 0) {
 		instance_create_layer(planet.x + (sprite_get_width(planet.sprite_index)/2), planet.y, "Instances", objPlayer);
 	}
 	
@@ -44,9 +46,11 @@ if (timeShakeScreen != 0) {
 	yShake = random_range(-1, 1);
 }
 
-var yPlayer = objPlayer.y - (camera_get_view_height(view_camera[0])*.25);
-if (yPlayer < yCameraLimit) {
-	yCameraLimit = yPlayer;
+if (instance_exists(objPlayer)) {
+	var yPlayer = objPlayer.y - (camera_get_view_height(view_camera[0])*.25);
+	if (yPlayer < yCameraLimit) {
+		yCameraLimit = yPlayer;
+	}	
 }
 
 yCamera += ((yCameraLimit-(camera_get_view_height(view_camera[0])/2))-yCamera)*.1;
@@ -58,12 +62,13 @@ camera_set_view_pos(
 );
 
 // create UFO
-
-if (objPlayer.y < (room_height/2) && !instance_exists(objUfo)) {
-	instance_create_layer(
-		room_width/2, 
-		camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 32,
-		"Instances",
-		objUfo
-	);
+if (instance_exists(objPlayer)) {
+	if (objPlayer.y < (room_height/2) && !instance_exists(objUfo)) {
+		instance_create_layer(
+			room_width/2, 
+			camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 32,
+			"Instances",
+			objUfo
+		);
+	}	
 }

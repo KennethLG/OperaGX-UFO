@@ -19,3 +19,5 @@ circleAlpha = 0;
 circleRadius = 0;
 
 detailsAlpha = 1;
+details = [];
+rings = [];
