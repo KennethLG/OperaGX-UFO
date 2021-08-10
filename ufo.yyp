@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"Approach","path":"scripts/Approach/Approach.yy",},"order":0,},
+    {"id":{"name":"gameFont","path":"fonts/gameFont/gameFont.yy",},"order":0,},
     {"id":{"name":"objGame","path":"objects/objGame/objGame.yy",},"order":0,},
     {"id":{"name":"sndShoot","path":"sounds/sndShoot/sndShoot.yy",},"order":1,},
     {"id":{"name":"objPlanet","path":"objects/objPlanet/objPlanet.yy",},"order":1,},
