@@ -18,3 +18,5 @@ yCamera = yCameraLimit;
 
 maxScore = 0;
 gameScore = 0;
+
+timeShakeScreen = 0;

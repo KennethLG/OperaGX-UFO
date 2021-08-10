@@ -14,6 +14,7 @@
     {"id":{"name":"sprPlayerRun","path":"sprites/sprPlayerRun/sprPlayerRun.yy",},"order":5,},
     {"id":{"name":"sprUfoBullet","path":"sprites/sprUfoBullet/sprUfoBullet.yy",},"order":1,},
     {"id":{"name":"sprPlanetDetail","path":"sprites/sprPlanetDetail/sprPlanetDetail.yy",},"order":4,},
+    {"id":{"name":"sndBang","path":"sounds/sndBang/sndBang.yy",},"order":2,},
     {"id":{"name":"objUfo","path":"objects/objUfo/objUfo.yy",},"order":0,},
     {"id":{"name":"sprAsteroid","path":"sprites/sprAsteroid/sprAsteroid.yy",},"order":2,},
     {"id":{"name":"sprPlanet32","path":"sprites/sprPlanet32/sprPlanet32.yy",},"order":1,},

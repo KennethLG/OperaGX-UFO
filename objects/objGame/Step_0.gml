@@ -36,6 +36,14 @@ while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 
 // Camera
 
+var xShake = 0;
+var yShake = 0;
+if (timeShakeScreen != 0) {
+	timeShakeScreen = Approach(timeShakeScreen, 0, 1);
+	xShake = random_range(-1, 1);
+	yShake = random_range(-1, 1);
+}
+
 var yPlayer = objPlayer.y - (camera_get_view_height(view_camera[0])*.25);
 if (yPlayer < yCameraLimit) {
 	yCameraLimit = yPlayer;
@@ -45,8 +53,8 @@ yCamera += ((yCameraLimit-(camera_get_view_height(view_camera[0])/2))-yCamera)*.
 
 camera_set_view_pos(
 	view_camera[0],
-	0,
-	yCamera
+	xShake,
+	yCamera + yShake
 );
 
 // create UFO

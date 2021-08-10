@@ -10,6 +10,9 @@ if (bullet != noone && death == 0) {
 	instance_destroy(bullet);
 	death = 1;
 	circleAlpha = 1;
+	objGame.timeShakeScreen = objGame.rmSpeed*.5;
+	
+	audio_play_sound(sndBang, 1, 0);
 }
 
 if (create) {

@@ -19,6 +19,8 @@ if (timeShoot == 0) {
 	audio_play_sound(sndShoot, 1, 0);
 	circleAlpha = 1;
 	circleRadius = 0;
+	
+	objGame.timeShakeScreen = objGame.rmSpeed*.3;
 } else {
 	timeShoot = Approach(timeShoot, 0, 1);
 }
