@@ -14,27 +14,29 @@ image_xscale = move == 0 ? image_xscale : move;
 
 planet = instance_nearest(x, y, objPlanet);
 if (planet != noone) {
-	var dir = point_direction(x, y, planet.x, planet.y);
-	var dirRun = dir + (60*move);
+	if (instance_exists(planet)) {
+		var dir = point_direction(x, y, planet.x, planet.y);
+		var dirRun = dir + (60*move);
 
-	onGround = place_meeting(x + lengthdir_x(2, dir), y + lengthdir_y(2, dir), objPlanet);
+		onGround = place_meeting(x + lengthdir_x(3, dir), y + lengthdir_y(3, dir), objPlanet);
 
-	if (onGround) {
-		if (!canToLand) {
-			canToLand = 1;
-		}
+		if (onGround) {
+			if (!canToLand) {
+				canToLand = 1;
+			}
 	
-		if (kjump) {
-			var dirToJump = point_direction(planet.x, planet.y, x, y);
-			physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
-			audio_play_sound(sndJump, 1, 0);
-		}
-	} else {
-		if (kdown && canToLand) {
-			canToLand = 0;
-			physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
-		}	
-	}	
+			if (kjump) {
+				var dirToJump = point_direction(planet.x, planet.y, x, y);
+				physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
+				audio_play_sound(sndJump, 1, 0);
+			}
+		} else {
+			if (kdown && canToLand) {
+				canToLand = 0;
+				physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
+			}	
+		}		
+	}
 }
 
 physics_apply_force(
@@ -45,10 +47,23 @@ physics_apply_force(
 	);
 
 // outbound
-if (phy_position_x > room_width && phy_speed_x > 0) {
+if (phy_position_x > (room_width + 16) && phy_speed_x > 0) {
 	phy_position_x = 0;
 }
 
-if (phy_position_x < 0 && phy_speed_x < 0) {
+if (phy_position_x < -16 && phy_speed_x < 0) {
 	phy_position_x = room_width;
+}
+
+
+// score
+
+var planetScore = instance_nearest(
+	camera_get_view_x(view_camera[0]) + (room_width/2),
+	camera_get_view_y(view_camera[0]) + room_height,
+	objPlanet
+);
+
+if ((y < planetScore.y) && (objGame.gameScore < planetScore.point)) {
+	objGame.gameScore++;
 }

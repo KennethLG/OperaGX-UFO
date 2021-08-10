@@ -12,7 +12,8 @@ if (timeShoot == 0) {
 
 	var bullet = instance_create_layer(x, y, "Instances", objUfoBullet);
 	bullet.spd = 2;
-	bullet.dir = irandom_range(135, 45);
+	bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-20, 20);
+
 	timeShoot = timeShootMax;
 	
 	audio_play_sound(sndShoot, 1, 0);

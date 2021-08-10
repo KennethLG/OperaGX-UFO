@@ -8,6 +8,8 @@ while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 	
 	var planet = instance_create_layer(xCreate, yCreate, "Instances", objPlanet);
 	planet.sprite_index = planetSprite;
+	maxScore++;
+	planet.point = maxScore;
 	
 	//create the player if does not exists
 	if (!instance_exists(objPlayer)) {
