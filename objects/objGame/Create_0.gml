@@ -34,7 +34,15 @@ messages = [
 	"Perhaps quantum \n physics will help us \n go further",
 	"The internet is relative",
 	"Remember that \n the shortest distance \n between two points is \n a straight line",
-	"What means UFO?"
+	"What means UFO?",
+	"Now you are dead and alive \n at the same time. \n is a Schrödinger's gift",
+	"The Schrödinger's cat is near you",
+	"YouDoNotHaveInternet.jpeg",
+	"Nikola Tesla is proud of you",
+	"Einstein neither had internet",
+	"Descartes seeing \n how you exist but \n you don't think",
+	"Newton is \n disappointed in you",
+	"I just know \n that you don't know"
 ]
 
 msg = 0;
