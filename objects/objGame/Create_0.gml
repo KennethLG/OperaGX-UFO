@@ -8,7 +8,9 @@ room_speed = rmSpeed;
 
 randomize();
 
-xCreate = irandom_range(0, room_width);
+gameStarted = 0;
+
+xCreate = irandom_range(64, room_width - 64);
 yCreate = room_height - 48;
 
 planetSprite = choose(sprPlanet32, sprPlanet48, sprPlanet64);
@@ -18,14 +20,21 @@ planetDistance = 0;
 yCameraLimit = yCreate;
 yCamera = yCameraLimit;
 
+planetsScore = 255;
 maxScore = 0;
+
 gameScore = 0;
+galaxies = 0;
+
+ini_open(working_directory + "record.ini");
+gameScoreRecord = ini_read_real("records", "planetsRecord", 0);
+galaxiesRecord = ini_read_real("records", "galaxiesRecord", 0);
+ini_close()
 
 timeShakeScreen = 0;
 
 death = 0;
 yLayout = 0;
-alphaLayout = 0;
 messages = [
 	"The router is connected?",
 	"Again we forgot \n to pay the internet :( ",

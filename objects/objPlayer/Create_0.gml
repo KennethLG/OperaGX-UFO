@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-vRun = 12;
-vJump = 8;
+vRun = 24;
+vJump = 15;
 vToLand = 5;
 gravityForce = 12;
 
