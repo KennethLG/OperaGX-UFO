@@ -32,7 +32,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "collision",
-    "path": "folders/collision.yy",
+    "path": "folders/Objects/collision.yy",
   },
   "resourceVersion": "1.0",
   "name": "objPlanet",

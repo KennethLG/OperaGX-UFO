@@ -1,10 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var kLeft = keyboard_check(vk_left);
-var kright = keyboard_check(vk_right);
-var kjump = keyboard_check_pressed(vk_up) && !death;
-var kdown = keyboard_check_pressed(vk_down) && !death;
+var kLeft = (keyboard_check(vk_left) || keyboard_check(ord("A")));
+var kright = (keyboard_check(vk_right) || keyboard_check(ord("R")));
+var kjump = (keyboard_check_pressed(vk_up) || keyboard_check(ord("W"))) && !death;
+var kdown = (keyboard_check_pressed(vk_down) || keyboard_check(ord("S"))) && !death;
 
 move = death ? 0 : (kright - kLeft);
 
@@ -13,6 +13,7 @@ image_xscale = move == 0 ? image_xscale : move;
 planet = instance_nearest(x, y, objPlanet);
 if (planet != noone) {
 	if (instance_exists(planet)) {
+		
 		var dir = point_direction(x, y, planet.x, planet.y);
 		var dirRun = dir + (60*move);
 
@@ -34,7 +35,9 @@ if (planet != noone) {
 				physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
 				audio_play_sound(sndDown, 1, 0);
 			}	
-		}		
+		}
+		
+		planet.alpha = Approach(planet.alpha, 1, .1);
 	}
 }
 

@@ -13,8 +13,28 @@ if (instance_exists(objPlayer)) {
 		if (timeShoot == 0) {
 
 		var bullet = instance_create_layer(x, y, "Instances", objUfoBullet);
-		bullet.spd = 2;
-		bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-40, 40);
+		if (objGame.gameScore > 100) {
+			bullet.spd = 3;
+			timeShootMax = objGame.rmSpeed*4;
+		} else if (objGame.galaxies > 1) {
+			bullet.spd = 5;
+			timeShootMax = objGame.rmSpeed*3;
+		} else if (objGame.galaxies >  2) {
+			bullet.spd = 7;
+			timeShootMax = objGame.rmSpeed*2;
+		} else {
+			bullet.spd = 2;
+		}
+		var shootRange;
+		if (objGame.galaxies > 1) {
+			shootRange = irandom_range(-20, 20);
+		} else if (objGame.galaxies > 2) {
+			shootRange = 0;
+		} else {
+			shootRange = irandom_range(-40, 40);
+		}
+		
+		bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + shootRange;
 
 		timeShoot = timeShootMax;
 	

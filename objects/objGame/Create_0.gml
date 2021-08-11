@@ -46,14 +46,15 @@ messages = [
 	"The internet is relative",
 	"Remember that \n the shortest distance \n between two points is \n a straight line",
 	"What means UFO?",
-	"Now you are dead and alive \n at the same time. \n is a Schrödinger's gift",
-	"The Schrödinger's cat is near you",
+	"Now you are dead and alive \n at the same time. \n is a Schrodinger's gift",
+	"The Schrodinger's cat is near you",
 	"YouDoNotHaveInternet.jpeg",
 	"Nikola Tesla is proud of you",
 	"Einstein neither had internet",
 	"Descartes seeing \n how you exist but \n you don't think",
 	"Newton is \n disappointed in you",
-	"I just know \n that you don't know"
+	"I just know \n that you don't know",
+	"We don't have the font to correctly write Schrodinger :("
 ];
 
 msg = 0;
