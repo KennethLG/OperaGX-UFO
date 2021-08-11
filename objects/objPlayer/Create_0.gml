@@ -3,7 +3,7 @@
 
 vRun = 24;
 vJump = 15;
-vToLand = 5;
+vToLand = 15;
 gravityForce = 12;
 
 planet = noone;

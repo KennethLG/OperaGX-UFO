@@ -32,6 +32,7 @@ if (planet != noone) {
 			if (kdown && canToLand) {
 				canToLand = 0;
 				physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
+				audio_play_sound(sndDown, 1, 0);
 			}	
 		}		
 	}

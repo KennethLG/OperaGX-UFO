@@ -14,14 +14,14 @@ while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
 	planet.sprite_index = planetSprite;
 	
 	maxScore++;
-	if (maxScore*5 >= planetsScore) {
+	if (maxScore >= planetsScore) {
 		planetsScore += 255;
 		galaxies++;
 	}
 	
 	
 	planet.point = maxScore;
-	planet.hue = clamp((255 - (maxScore*5)) + irandom_range(-10, 10), 0, 255);
+	planet.hue = clamp((255 - (maxScore)) + irandom_range(-10, 10), 0, 255);
 	planet.color = make_color_hsv(planet.hue, irandom_range(150, 255), irandom_range(150, 255));
 	
 	//create the player if does not exists

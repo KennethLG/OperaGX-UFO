@@ -9,6 +9,7 @@
     {"id":{"name":"sprPlanetLight","path":"sprites/sprPlanetLight/sprPlanetLight.yy",},"order":3,},
     {"id":{"name":"objUfoBullet","path":"objects/objUfoBullet/objUfoBullet.yy",},"order":1,},
     {"id":{"name":"sprPlayerDeath","path":"sprites/sprPlayerDeath/sprPlayerDeath.yy",},"order":2,},
+    {"id":{"name":"sndDown","path":"sounds/sndDown/sndDown.yy",},"order":3,},
     {"id":{"name":"sprPlanetRing","path":"sprites/sprPlanetRing/sprPlanetRing.yy",},"order":5,},
     {"id":{"name":"sprPlanet48","path":"sprites/sprPlanet48/sprPlanet48.yy",},"order":0,},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"order":4,},
