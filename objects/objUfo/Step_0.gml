@@ -14,7 +14,7 @@ if (instance_exists(objPlayer)) {
 
 		var bullet = instance_create_layer(x, y, "Instances", objUfoBullet);
 		bullet.spd = 2;
-		bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-20, 20);
+		bullet.dir = point_direction(x, y, objPlayer.x, objPlayer.y) + irandom_range(-40, 40);
 
 		timeShoot = timeShootMax;
 	

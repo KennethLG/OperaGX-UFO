@@ -6,12 +6,14 @@ window_center();
 if (keyboard_check_pressed(ord("R"))) game_restart();
 
 while(yCreate > (camera_get_view_y(view_camera[0]) - 64)) {
-	xCreate = irandom_range(0, room_width);
+	xCreate = clamp(xCreate + irandom_range(-64, 64), 0, room_width);
 	
 	var planet = instance_create_layer(xCreate, yCreate, "Instances", objPlanet);
 	planet.sprite_index = planetSprite;
 	maxScore++;
 	planet.point = maxScore;
+	planet.hue = clamp((255 - (maxScore)) + irandom_range(-10, 10), 0, 255);
+	planet.color = make_color_hsv(planet.hue, irandom_range(150, 255), irandom_range(150, 255));
 	
 	//create the player if does not exists
 	if (!instance_exists(objPlayer) && death == 0) {
@@ -47,7 +49,7 @@ if (timeShakeScreen != 0) {
 }
 
 if (instance_exists(objPlayer)) {
-	var yPlayer = objPlayer.y - (camera_get_view_height(view_camera[0])*.25);
+	var yPlayer = objPlayer.y;
 	if (yPlayer < yCameraLimit) {
 		yCameraLimit = yPlayer;
 	}	
@@ -63,7 +65,7 @@ camera_set_view_pos(
 
 // create UFO
 if (instance_exists(objPlayer)) {
-	if (objPlayer.y < (room_height/2) && !instance_exists(objUfo)) {
+	if (objPlayer.y < (-room_height*3) && !instance_exists(objUfo)) {
 		instance_create_layer(
 			room_width/2, 
 			camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) + 32,

@@ -1,8 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-hue = irandom_range(220, 255);
-color = make_color_hsv(hue, 220, 220);
+//hue = irandom_range(220, 255);
+//color = make_color_hsv(hue, 220, 220);
 
 angle = irandom(360);
 

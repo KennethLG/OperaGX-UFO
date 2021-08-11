@@ -86,7 +86,7 @@ if ((bullet != noone || deathByExplosion) && !death) {
 	instance_destroy(bullet);
 }
 
-if ((bbox_top > (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]))) && !death) {
-	instance_destroy();
-	killGame();
-}
+//if ((bbox_top > (camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]))) && !death) {
+//	instance_destroy();
+//	killGame();
+//}
