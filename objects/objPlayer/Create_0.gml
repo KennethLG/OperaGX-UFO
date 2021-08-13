@@ -2,9 +2,9 @@
 // You can write your code in this editor
 
 vRun = 24;
-vJump = 15;
+vJump = 25;
 vToLand = 15;
-gravityForce = 12;
+gravityForce = 50;
 
 planet = noone;
 
@@ -17,3 +17,6 @@ circleAlpha = 0;
 circleRadius = 0;
 
 death = 0;
+
+xSearch = x;
+ySearch = y;

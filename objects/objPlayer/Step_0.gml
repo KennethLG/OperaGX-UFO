@@ -10,26 +10,49 @@ move = death ? 0 : (kright - kLeft);
 
 image_xscale = move == 0 ? image_xscale : move;
 
-planet = instance_nearest(x, y, objPlanet);
+planet = instance_nearest(xSearch, ySearch, objPlanet);
+var newPlanet = instance_place(x + phy_speed_x, y + phy_speed_y, objPlanet);
+
+if (newPlanet != noone) {
+	if (newPlanet != planet) {
+		planet = newPlanet;
+	}
+}
+
 if (planet != noone) {
 	if (instance_exists(planet)) {
 		
 		var dir = point_direction(x, y, planet.x, planet.y);
-		var dirRun = dir + (60*move);
+		var dirRun = dir + (90*move);
+		var dirToJump = point_direction(planet.x, planet.y, x, y);
+		
+		xSearch = x; //+ lengthdir_x(sprite_height, image_angle + 90);
+		ySearch = y; //+ lengthdir_y(sprite_height, image_angle + 90);
+		
+		
 
 		onGround = place_meeting(x + lengthdir_x(3, dir), y + lengthdir_y(3, dir), objPlanet);
+		
+		if (move != 0) {
+			if (onGround) {
+				phy_speed_x = Approach(phy_speed_x, lengthdir_x(1, dirRun), .2);
+				phy_speed_y = Approach(phy_speed_y, lengthdir_y(1, dirRun), .2);
+			}
+		}
 
 		if (onGround) {
+			
 			if (!canToLand) {
 				canToLand = 1;
 			}
 	
 			if (kjump) {
-				var dirToJump = point_direction(planet.x, planet.y, x, y);
+				
 				physics_apply_impulse(x, y, lengthdir_x(vJump, dirToJump), lengthdir_y(vJump, dirToJump));
 				audio_play_sound(sndJump, 1, 0);
 			}
 		} else {
+			
 			if (kdown && canToLand) {
 				canToLand = 0;
 				physics_apply_impulse(x, y, lengthdir_x(vToLand, dir), lengthdir_y(vToLand, dir));
@@ -44,8 +67,8 @@ if (planet != noone) {
 physics_apply_force(
 		x,
 		y,
-		lengthdir_x(gravityForce, dir) + (move == 0 ? 0 : lengthdir_x(vRun, dirRun)),
-		lengthdir_y(gravityForce, dir) + (move == 0 ? 0 : lengthdir_y(vRun, dirRun))
+		lengthdir_x(gravityForce, dir) + ((move == 0 && !onGround) ? 0 : lengthdir_x(vRun, dirRun)),
+		lengthdir_y(gravityForce, dir) + ((move == 0 && !onGRound) ? 0 : lengthdir_y(vRun, dirRun))
 	);
 
 // outbound
@@ -73,7 +96,7 @@ if ((y < planetScore.y) && (objGame.gameScore < planetScore.point)) {
 // death
 var bullet = instance_place(x, y, objUfoBullet);
 
-var deathByExplosion = (planet.death == 1) && (point_distance(x, y, planet.x, planet.y) < planet.sprite_width);
+var deathByExplosion = (planet.death == 1) && (point_distance(x, y, planet.x, planet.y) < ((planet.sprite_width/2) + 8));
 
 if ((bullet != noone || deathByExplosion) && !death) {
 	circleAlpha = 1;

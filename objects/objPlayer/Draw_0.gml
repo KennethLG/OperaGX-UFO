@@ -22,6 +22,8 @@ if (death) {
 
 draw_self();
 
+draw_line(x, y, planet.x, planet.y);
+
 if (circleAlpha != 0) {
 	circleAlpha = Approach(circleAlpha, 0, .1);
 	circleRadius += 5;
