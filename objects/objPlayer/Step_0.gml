@@ -60,7 +60,7 @@ if (planet != noone) {
 			}	
 		}
 		
-		planet.alpha = Approach(planet.alpha, 1, .1);
+		planet.alpha = Approach(planet.alpha, 1, .5);
 	}
 }
 
@@ -68,7 +68,7 @@ physics_apply_force(
 		x,
 		y,
 		lengthdir_x(gravityForce, dir) + ((move == 0 && !onGround) ? 0 : lengthdir_x(vRun, dirRun)),
-		lengthdir_y(gravityForce, dir) + ((move == 0 && !onGRound) ? 0 : lengthdir_y(vRun, dirRun))
+		lengthdir_y(gravityForce, dir) + ((move == 0 && !onGround) ? 0 : lengthdir_y(vRun, dirRun))
 	);
 
 // outbound
@@ -89,8 +89,10 @@ var planetScore = instance_nearest(
 	objPlanet
 );
 
-if ((y < planetScore.y) && (objGame.gameScore < planetScore.point)) {
-	objGame.gameScore++;
+if (death == 0) {
+	if ((y < planetScore.y) && (objGame.gameScore < planetScore.point)) {
+		objGame.gameScore++;
+	}	
 }
 
 // death

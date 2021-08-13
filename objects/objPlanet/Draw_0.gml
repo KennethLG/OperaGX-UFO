@@ -1,12 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var lightScale;
-if (sprite_width == 64) lightScale = 1;
-else if (sprite_width == 48) lightScale = .75;
-else lightScale = .5;
+//lightScaleNear = Approach(lightScaleNear, 1, .1);
 
-draw_sprite_ext(sprPlanetLight, 0, x, y, lightScale, lightScale, 0, color, (alpha*.5));
+draw_sprite_ext(sprPlanetLight, 0, x, y, lightScale*lightScaleNear, lightScale*lightScaleNear, 0, color, (alpha*.5));
 draw_sprite_ext(sprite_index, 0, x, y, 1, 1, angle, color, alpha);
 
 for (var i = 0; i < array_length(details); i++) {

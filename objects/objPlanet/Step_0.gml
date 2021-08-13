@@ -18,7 +18,15 @@ if (bullet != noone && death == 0) {
 if (create) {
 	create = 0;
 	
-	var detailsNumber = irandom_range(3, 6);
+	if (sprite_width == 64) {
+		lightScale = 1;
+	} else if (sprite_width == 48) {
+		lightScale = .75;
+	} else {
+		lightScale = .5;
+	}
+	
+	var detailsNumber = irandom_range(6, 12);
 	for (var i = 0; i < detailsNumber; i++) {
 		var detail = {
 			image: irandom_range(0, sprite_get_number(sprPlanetDetail)-1),

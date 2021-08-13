@@ -21,3 +21,6 @@ circleRadius = 0;
 detailsAlpha = 1;
 details = [];
 rings = [];
+
+lightScale = 1;
+lightScaleNear = 1;
